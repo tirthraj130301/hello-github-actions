@@ -1,0 +1,12 @@
+name: cron schedule workflow
+on:
+  schedule:
+    - cron: 5 * * * *
+jobs:
+  job1:
+    name: Job 1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Printing Job
+        run: |
+          echo "Independent Job1"
