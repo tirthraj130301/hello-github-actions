@@ -1,0 +1,34 @@
+name: Handson Workflow1
+on: push
+jobs:
+  job1:
+    name: Job 1
+    runs-on: ubuntu-latest
+    steps:
+    - name: Independent Job1
+      run: |
+        echo "Job 1 Executed (Independent Job)"
+
+  job2:
+    name: Job 2
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+    - name: Dependant Job2
+      run: |
+        echo "Job 2 Executed (Dependent On Job1)"
+  job3:
+    name: Job 3
+    needs: job2
+    runs-on: ubuntu-latest
+    steps:
+    - name: Dependant Job3
+      run: |
+        echo "Job 2 Executed (Dependent On Job2)"
+  job4:
+    name: Job 4
+    runs-on: ubuntu-latest
+    steps:
+    - name: Independent job4
+      run: |
+        echo "Job4 Executed (Independent Job)"
