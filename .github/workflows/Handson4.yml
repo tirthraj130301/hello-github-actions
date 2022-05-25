@@ -1,0 +1,15 @@
+name: Handson Workflow3
+on: push
+jobs:
+  job1:
+    name: Job 1
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        run: |
+          expr 3 + 7 > addition.txt
+      - name: Upload math result for Job 1
+        uses: actions/upload-artifact@v3
+        with:
+          name: homework
+          path: addition.txt
