@@ -1,0 +1,13 @@
+name: Handson Workflow2
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  job1:
+    name: Job 1
+    runs-on: ubuntu-latest
+    steps:
+    - name: Independent Job1
+      run: |
+        echo "Job 1 Executed (Independent Job)"
