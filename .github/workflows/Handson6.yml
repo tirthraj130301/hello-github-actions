@@ -1,0 +1,20 @@
+name: conditional workflow
+on: push,
+    pull_request:
+      branches:
+        - 'main'
+
+jobs:
+  normal_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Step in normal job
+        run: ./run-tests
+
+  pull_request_job:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - name: Print Step in PR job
+        run: |
+          echo "Hello From pull_request_job"
