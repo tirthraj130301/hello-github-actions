@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print Step in normal job
-        run: ./run-tests
+        run: |
+            echo "Hello From normal_job"
 
   pull_request_job:
     runs-on: ubuntu-latest
