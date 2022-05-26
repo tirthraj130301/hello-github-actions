@@ -5,17 +5,14 @@ jobs:
     name: Build Project
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Install NPM dependencies
-      run: npm install
-    - name: Build project assets
-      run: npm run build
+    - shell: bash
+      run: |
+        expr 3 + 7 > addition.txt
     - name: Upload sample site
       uses: actions/upload-artifact@v2
       with:
         name: sample-site
-        path: .next/
+        path: addition.txt
   release-project:
     name: Release Project
     runs-on: ubuntu-latest
@@ -24,7 +21,7 @@ jobs:
       - name: Download site content
         uses: actions/download-artifact@v2
         with:
-          name: site-build
+          name: sample-site
       - name: View content
         run: ls -R
       - name: Create GitHub release
