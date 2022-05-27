@@ -1,4 +1,4 @@
-name: Build Next.js web application
+name: Create New Release
 on: push
 jobs:
   build-project:
